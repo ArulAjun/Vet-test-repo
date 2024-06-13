@@ -20,10 +20,10 @@ jobs:
             -v `pwd`:/app \
             ghcr.io/safedep/vet:latest \
             scan -s -D /app \
-            --exceptions /app/app/.vet/exceptions.yml \
-            --filter-suite /app/app/.vet/policy.yml \
+            --exceptions app/.vet/exceptions.yml \
+            --filter-suite app/.vet/policy.yml \
             --filter-fail \
-            --report-markdown=/app/app/vet.md
+            --report-markdown=app/vet.md
 
       - name: Add Vet Report to Summary
         run: cat vet.md >> $GITHUB_STEP_SUMMARY
