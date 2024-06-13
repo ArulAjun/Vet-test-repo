@@ -13,6 +13,7 @@ jobs:
 
       - name: Run Vet
         run: |
+          docker pull ghcr.io/safedep/vet:latest
           docker run \
             -u $(id -u ${USER}):$(id -g ${USER}) \
             -e VET_INSIGHTS_API_KEY=${{ secrets.VET_INSIGHTS_API_KEY }} \
